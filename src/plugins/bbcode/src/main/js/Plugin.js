@@ -88,11 +88,11 @@ define(
           rep(/<u>/gi, "[u]");
           rep(/<blockquote[^>]*>/gi, "[quote]");
           rep(/<\/blockquote>/gi, "[/quote]");
-          rep(/<br \/>/gi, "\n");
-          rep(/<br\/>/gi, "\n");
-          rep(/<br>/gi, "\n");
-          rep(/<p>/gi, "");
-          rep(/<\/p>/gi, "\n");
+          rep(/<br \/>/gi, "[br/]");
+          rep(/<br\/>/gi, "[br/]");
+          rep(/<br>/gi, "[br/]");
+          rep(/<p>/gi, "[p]");
+          rep(/<\/p>/gi, "[/p]");
           rep(/&nbsp;|\u00a0/gi, " ");
           rep(/&quot;/gi, "\"");
           rep(/&lt;/gi, "<");
@@ -118,6 +118,8 @@ define(
           rep(/\[\/i\]/gi, "</em>");
           rep(/\[u\]/gi, "<u>");
           rep(/\[\/u\]/gi, "</u>");
+          rep(/\[p\]/gi, "<p>");
+          rep(/\[\/p\]/gi, "</p>");
           rep(/\[url=([^\]]+)\](.*?)\[\/url\]/gi, "<a href=\"$1\">$2</a>");
           rep(/\[url\](.*?)\[\/url\]/gi, "<a href=\"$1\">$1</a>");
           rep(/\[img\](.*?)\[\/img\]/gi, "<img src=\"$1\" />");
